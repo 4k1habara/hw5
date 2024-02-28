@@ -2,60 +2,52 @@ public class Main {
     public static void main(String[] args) {
 
         //task1
-        System.out.println("");
         char clientOS = 0;
         if (clientOS == 0) {
             System.out.println("Установите версию приложения для iOS по ссылке");
-        } else {
+        } else if (clientOS == 1) {
             System.out.println("Установите версию приложения для Android по ссылке");
         }
 
         //task2
-        System.out.println("");
         int clientDeviceYear = 2015;
-        if (clientDeviceYear >= 2015) {
-            if (clientOS == 0) {
+        if ((clientDeviceYear >= 2015) && (clientOS == 0)) {
                 System.out.println("Установите версию приложения для iOS по ссылке");
-            } else {
+        } else if ((clientDeviceYear >= 2015) && (clientOS == 1)) {
                 System.out.println("Установите версию приложения для Android по ссылке");
-            }
         } else if (clientOS == 0) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else {
+        } else if (clientOS == 1) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
         }
 
         //task3
-        System.out.println("");
         int year = 2024;
-        int everyFourth = year % 4;
-        int everyHundredth = year % 100;
-        if (year > 1584) {
-            if ((everyFourth == 0) && (everyHundredth != 0)) {
-                System.out.println("Год високосный");
-            } else {
+        boolean everyFourth = (year % 4) == 0;
+        boolean everyHundredth = (year % 100) != 0;
+        boolean everyFourHundredth = (year % 400) == 0;
+        if ((year > 1584) && (everyFourth) && ((everyHundredth) || (everyFourHundredth))) {
+            System.out.println("Год високосный");
+        } else {
                 System.out.println("Это невисокосный год");
-            }
         }
 
         //task4
-        System.out.println("");
         int deliveryDistance = 95;
         int days = 1;
         if (deliveryDistance > 100) {
             System.out.println("На ваш адрес доставка не осуществляется");
-            return;
+        } else {
+            if (deliveryDistance > 20) {
+                days++;
+            }
+            if (deliveryDistance > 60) {
+                days++;
+            }
+                System.out.println("Дней потребуется: " + days);
         }
-        if (deliveryDistance > 20) {
-            days++;
-        }
-        if (deliveryDistance > 60) {
-            days++;
-        }
-        System.out.println("Дней потребуется: " + days);
 
         //task5
-        System.out.println("");
         int monthNumber = 12;
         switch (monthNumber) {
             case 12, 1, 2 -> System.out.println("Зима");
